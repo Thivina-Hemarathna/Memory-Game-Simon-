@@ -46,7 +46,7 @@ function animatePress(currentColor) {
 }
 
 // Handle user click or tap event on buttons
-$(".btn").on("click touchstart", function() {  // Handle both mouse and touch events
+$(".btn").on("click ", function() {  // Handle both mouse and touch events
     var userChosenColour = this.id;
     userClickedPattern.push(userChosenColour);
 
