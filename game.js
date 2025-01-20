@@ -5,7 +5,7 @@ var level = 0;
 var gameStarted = false;
 
 // Combine start events (keydown or touchstart)
-$(document).on("keydown touchstart", function() {
+$(document).on("keydown touchend", function() {
     if (!gameStarted) {
         $("#level-title").text("Level " + level);
         nextSequence();
