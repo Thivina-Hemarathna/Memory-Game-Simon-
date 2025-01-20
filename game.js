@@ -4,17 +4,8 @@ var buttonColours = ["red", "blue", "green", "yellow"];
 var level = 0;
 var gameStarted = false;
 
-// Start the game when a key is pressed
-$(document).keydown(function() {
-    if (!gameStarted) {
-        $("#level-title").text("Level " + level);
-        nextSequence();
-        gameStarted = true;
-    }
-});
-
-//touchscreen implementation test
-$(document).on('touchstart', function() {
+// Combine start events (keydown or touchstart)
+$(document).on("keydown touchstart", function() {
     if (!gameStarted) {
         $("#level-title").text("Level " + level);
         nextSequence();
@@ -54,8 +45,8 @@ function animatePress(currentColor) {
     }, 100);
 }
 
-// Handle user click event on buttons
-$(".btn").click(function() {
+// Handle user click or tap event on buttons
+$(".btn").on("click touchstart", function() {  // Handle both mouse and touch events
     var userChosenColour = this.id;
     userClickedPattern.push(userChosenColour);
 
@@ -88,7 +79,7 @@ function checkAnswer(currentLevel) {
             next();
         });
 
-        $("h1").text("Game Over, Press Any Key to Restart");
+        $("h1").text("Game Over, Press Any Key or Tap to Restart");
         startOver();
         // Reset the game state
     }
