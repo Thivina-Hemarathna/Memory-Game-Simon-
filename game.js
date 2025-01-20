@@ -13,6 +13,15 @@ $(document).keydown(function() {
     }
 });
 
+//touchscreen implementation test
+$(document).touchstart(function() {
+    if (!gameStarted) {
+        $("#level-title").text("Level " + level);
+        nextSequence();
+        gameStarted = true;
+    }
+});
+
 // Generate the next sequence of colors
 function nextSequence() {
     userClickedPattern = []; // Reset user clicked pattern for the new sequence
