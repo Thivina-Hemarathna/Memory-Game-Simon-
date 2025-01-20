@@ -14,7 +14,7 @@ $(document).keydown(function() {
 });
 
 //touchscreen implementation test
-$(document).touchstart(function() {
+$(document).on('touchstart', function() {
     if (!gameStarted) {
         $("#level-title").text("Level " + level);
         nextSequence();
